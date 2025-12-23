@@ -90,9 +90,9 @@ To study the effect of different exploration decay strategies on TD(λ) / SARSA(
 
 | Decay Strategy | Curve Variant 1 | Curve Variant 2 | Interpretation |
 |----------------|----------------|----------------|----------------|
-| **Linear decay** | ![TD Linear 1](td_lambda_linear_1.png) | ![TD Linear 2](td_lambda_linear_2.png) | Gradual reduction in exploration leads to smooth and stable learning, balancing exploration and exploitation. |
-| **Exponential decay** | ![TD Exp 1](td_lambda_exp_1.png) | ![TD Exp 2](td_lambda_exp_2.png) | Faster convergence but may reduce policy robustness if exploration decays too quickly. |
-| **Inverse time decay** | ![TD Inverse 1](td_lambda_inverse_1.png) | ![TD Inverse 2](td_lambda_inverse_2.png) | Maintains exploration for longer durations, resulting in more stable long-term performance. |
+| **Linear decay** | ![TD Linear 1](td_lambda_linear_decay_1.png) | ![TD Linear 2](td_lambda_linear_decay_2.png) | Gradual reduction in exploration leads to smooth and stable learning, balancing exploration and exploitation. |
+| **Exponential decay** | ![TD Exp 1](td_lambda_exp_decay_1.png) | ![TD Exp 2](td_lambda_exp_decay_2.png) | Faster convergence but may reduce policy robustness if exploration decays too quickly. |
+| **Inverse time decay** | ![TD Inverse 1](td_lambda_inverse_decay_1.png) | ![TD Inverse 2](td_lamda_inverse_decay_2.png) | Maintains exploration for longer durations, resulting in more stable long-term performance. |
 
 ### TD(λ) Observations
 
