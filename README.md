@@ -14,6 +14,7 @@ algorithms in a discrete state–action space.
 - Monte Carlo Control (Every-Visit, ε-greedy)
 - Q-learning (off-policy temporal difference control)
 - SARSA(λ) (on-policy temporal difference control with eligibility traces)
+- TD(λ) / SARSA(λ) (on-policy temporal difference control with eligibility traces)
 
 Each algorithm learns an optimal policy for navigating MiniGrid environments
 using a Q-table representation.
@@ -22,9 +23,9 @@ using a Q-table representation.
 
 ## Environment
 
-- MiniGrid (Gymnasium)
-- Discrete observation and action space
-- Sparse reward setting
+- MiniGrid (Gymnasium)  
+- Discrete observation and action space  
+- Sparse reward setting  
 
 ---
 
@@ -59,16 +60,15 @@ schedules.
 
 ### Q-learning Observations
 
-- Off-policy updates allow faster learning toward optimal actions.
-- Aggressive decay can amplify maximization bias.
-- Moderate decay schedules provide the best tradeoff between speed and stability.
+- Off-policy updates allow faster learning toward optimal actions.  
+- Aggressive decay can amplify maximization bias.  
+- Moderate decay schedules provide the best tradeoff between speed and stability.  
 
 ---
 
 ## SARSA(λ) Decay Strategy Comparison
 
-To understand how different exploration decay strategies influence
-SARSA(λ), reward curves were analyzed under multiple epsilon decay schedules.
+To understand how different exploration decay strategies influence SARSA(λ), reward curves were analyzed under multiple epsilon decay schedules.
 
 | Decay Strategy | Curve Variant 1 | Curve Variant 2 | Interpretation |
 |----------------|----------------|----------------|----------------|
@@ -78,27 +78,47 @@ SARSA(λ), reward curves were analyzed under multiple epsilon decay schedules.
 
 ### SARSA(λ) Observations
 
-- On-policy learning benefits from slower decay schedules.
-- Eligibility traces help assign credit across state–action sequences.
-- Stability is generally higher compared to Q-learning.
+- On-policy learning benefits from slower decay schedules.  
+- Eligibility traces help assign credit across state–action sequences.  
+- Stability is generally higher compared to Q-learning.  
+
+---
+
+## TD(λ) Decay Strategy Comparison
+
+To study the effect of different exploration decay strategies on TD(λ) / SARSA(λ), experiments were conducted under multiple epsilon decay schedules.
+
+| Decay Strategy | Curve Variant 1 | Curve Variant 2 | Interpretation |
+|----------------|----------------|----------------|----------------|
+| **Linear decay** | ![TD Linear 1](td_lambda_linear_1.png) | ![TD Linear 2](td_lambda_linear_2.png) | Gradual reduction in exploration leads to smooth and stable learning, balancing exploration and exploitation. |
+| **Exponential decay** | ![TD Exp 1](td_lambda_exp_1.png) | ![TD Exp 2](td_lambda_exp_2.png) | Faster convergence but may reduce policy robustness if exploration decays too quickly. |
+| **Inverse time decay** | ![TD Inverse 1](td_lambda_inverse_1.png) | ![TD Inverse 2](td_lambda_inverse_2.png) | Maintains exploration for longer durations, resulting in more stable long-term performance. |
+
+### TD(λ) Observations
+
+- Eligibility traces allow faster credit assignment across state–action sequences.  
+- On-policy updates help achieve smoother convergence compared to off-policy Q-learning.  
+- Slower decay strategies (linear or inverse) generally yield better stability in sparse-reward environments.  
+- Rapid exponential decay can accelerate learning but may harm policy robustness.  
 
 ---
 
 ## Key Comparative Insights
 
-- Q-learning converges faster but is more sensitive to aggressive decay.
-- SARSA(λ) demonstrates smoother learning due to on-policy updates.
-- Inverse and linear decay strategies generally outperform rapid exponential decay.
-- Exploration scheduling plays a crucial role in sparse-reward environments.
+- Q-learning converges faster but is more sensitive to aggressive decay.  
+- SARSA(λ) demonstrates smoother learning due to on-policy updates.  
+- TD(λ) with eligibility traces benefits from longer exploration for stable learning.  
+- Inverse and linear decay strategies generally outperform rapid exponential decay.  
+- Exploration scheduling plays a crucial role in sparse-reward environments.  
 
 ---
 
 ## Tech Stack
 
-- Python
-- Gymnasium / MiniGrid
-- NumPy
-- Matplotlib
+- Python  
+- Gymnasium / MiniGrid  
+- NumPy  
+- Matplotlib  
 
 ---
 
