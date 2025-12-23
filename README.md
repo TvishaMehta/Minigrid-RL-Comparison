@@ -58,7 +58,7 @@ SARSA(λ), we compare reward curves under multiple epsilon decay schedules.
 |----------------|----------------|----------------|----------------|
 | **Linear decay** | ![Linear Decay 1](sarsa_lambda_linear_decay_1.png) | ![Linear Decay 2](sarsa_lambda_linear_decay_2.png) | Gradual reduction in exploration creates a smooth learning progression with moderate stability and balanced exploration/exploitation. |
 | **Exponential decay** | ![Exp Decay 1](sarsa_lambda_exp_decay_1.png) | ![Exp Decay 2](sarsa_lambda_exp_decay_2.png) | Rapid decay accelerates exploitation early, potentially improving initial convergence but risking suboptimal policy locking. |
-| **Inverse time decay** | ![Inverse Decay 1](sarsa_lambda_inverse_decay_1.png) | ![Inverse Decay 2](sarsa_lambda_inverse_decay_2.png) | Slow reduction in exploration supports continued learning and adaptation, often producing stable long-term performance. |
+| **Inverse time decay** | ![Inverse Decay 1](sarsa_lamba_inverse_decay_1.png) | ![Inverse Decay 2](sarsa_lambda_inverse_decay_2.png) | Slow reduction in exploration supports continued learning and adaptation, often producing stable long-term performance. |
 
 ### Interpretation Highlights
 
