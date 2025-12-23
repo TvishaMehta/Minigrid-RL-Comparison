@@ -1,8 +1,7 @@
 # Comparative Analysis of Reinforcement Learning Algorithms on MiniGrid
 
 This repository presents an implementation and comparison of classical
-tabular reinforcement learning algorithms on the MiniGrid environment as
-part of the IvLabs Summer Internship selection task.
+tabular reinforcement learning algorithms on the MiniGrid environment.
 
 The goal is to study and compare the learning behavior of different RL
 algorithms in a discrete state–action space.
@@ -37,17 +36,7 @@ Training performance was evaluated using episode reward curves.
 
 ![Monte Carlo](monte%20carlo.png)
 
-### Q-learning
-
-![Q-learning](q%20learning.png)
-
-### SARSA(λ)
-
-![SARSA Lambda](sarsa%20lambda.png)
-
----
-
-## Q-learning Decay Strategy Comparison
+### Q-learning Decay Strategy Comparison
 
 To analyze the effect of different exploration decay strategies on
 Q-learning, experiments were conducted using multiple epsilon decay
@@ -66,7 +55,7 @@ schedules.
 
 ---
 
-## SARSA(λ) Decay Strategy Comparison
+### SARSA(λ) Decay Strategy Comparison
 
 To understand how different exploration decay strategies influence SARSA(λ), reward curves were analyzed under multiple epsilon decay schedules.
 
@@ -84,7 +73,7 @@ To understand how different exploration decay strategies influence SARSA(λ), re
 
 ---
 
-## TD(λ) Decay Strategy Comparison
+### TD(λ) Decay Strategy Comparison
 
 To study the effect of different exploration decay strategies on TD(λ) / SARSA(λ), experiments were conducted under multiple epsilon decay schedules.
 
