@@ -52,11 +52,10 @@ To analyze the effect of different exploration decay strategies on
 Q-learning, experiments were conducted using multiple epsilon decay
 schedules.
 
-| Decay Strategy | Curve Variant 1 | Curve Variant 2 | Interpretation |
+| Decay Strategy | Curve Variant 1 | Interpretation |
 |----------------|----------------|----------------|----------------|
-| **Linear decay** | ![Q Linear 1](q_learning_linear_decay_1.png) | ![Q Linear 2](q_learning_linear_decay_2.png) | Gradual reduction in exploration enables steady learning and smoother convergence while balancing exploration and exploitation. |
-| **Exponential decay** | ![Q Exp 1](q_learning_exp_decay_1.png) | ![Q Exp 2](q_learning_exp_decay_2.png) | Faster reduction in exploration leads to quicker exploitation but can cause instability or premature convergence to suboptimal policies. |
-| **Inverse time decay** | ![Q Inverse 1](q_learning_inverse_decay_1.png) | ![Q Inverse 2](q_learning_inverse_decay_2.png) | Maintains exploration for a longer duration, often resulting in more stable long-term performance at the cost of slower early convergence. |
+| **Linear decay** | ![Q Linear 1](q_learning_linear_decay.png) | Gradual reduction in exploration enables steady learning and smoother convergence while balancing exploration and exploitation. |
+| **Inverse time decay** | ![Q Inverse 1](q_learning_inverse_decay.png) | Maintains exploration for a longer duration, often resulting in more stable long-term performance at the cost of slower early convergence. |
 
 ### Q-learning Observations
 
@@ -71,10 +70,11 @@ schedules.
 To understand how different exploration decay strategies influence
 SARSA(λ), reward curves were analyzed under multiple epsilon decay schedules.
 
-| Decay Strategy | Curve Variant 1 | Interpretation |
+| Decay Strategy | Curve Variant 1 | Curve Variant 2 | Interpretation |
 |----------------|----------------|----------------|----------------|
-| **Linear decay** | ![Linear Decay 1](sarsa_lambda_linear_decay.png) | !Produces smooth and stable convergence by gradually shifting from exploration to exploitation. |
-| **Inverse time decay** | ![Inverse Decay 1](sarsa_lambda_inverse_decay.png) | Sustains exploration longer, often resulting in stable learning and improved long-term performance. |
+| **Linear decay** | ![Linear Decay 1](sarsa_lambda_linear_decay_1.png) | ![Linear Decay 2](sarsa_lambda_linear_decay_2.png) | Produces smooth and stable convergence by gradually shifting from exploration to exploitation. |
+| **Exponential decay** | ![Exp Decay 1](sarsa_lambda_exp_decay_1.png) | ![Exp Decay 2](sarsa_lambda_exp_decay_2.png) | Accelerates convergence but may reduce policy robustness if exploration decays too quickly. |
+| **Inverse time decay** | ![Inverse Decay 1](sarsa_lambda_inverse_decay_1.png) | ![Inverse Decay 2](sarsa_lambda_inverse_decay_2.png) | Sustains exploration longer, often resulting in stable learning and improved long-term performance. |
 
 ### SARSA(λ) Observations
 
