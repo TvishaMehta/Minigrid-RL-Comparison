@@ -44,27 +44,52 @@ Training performance was evaluated using episode reward curves.
 
 ![SARSA Lambda](sarsa%20lambda.png)
 
-These plots illustrate differences in convergence behavior, stability, and
-sample efficiency across algorithms.
+---
+
+## Q-learning Decay Strategy Comparison
+
+To analyze the effect of different exploration decay strategies on
+Q-learning, experiments were conducted using multiple epsilon decay
+schedules.
+
+| Decay Strategy | Curve Variant 1 | Curve Variant 2 | Interpretation |
+|----------------|----------------|----------------|----------------|
+| **Linear decay** | ![Q Linear 1](q_learning_linear_decay_1.png) | ![Q Linear 2](q_learning_linear_decay_2.png) | Gradual reduction in exploration enables steady learning and smoother convergence while balancing exploration and exploitation. |
+| **Exponential decay** | ![Q Exp 1](q_learning_exp_decay_1.png) | ![Q Exp 2](q_learning_exp_decay_2.png) | Faster reduction in exploration leads to quicker exploitation but can cause instability or premature convergence to suboptimal policies. |
+| **Inverse time decay** | ![Q Inverse 1](q_learning_inverse_decay_1.png) | ![Q Inverse 2](q_learning_inverse_decay_2.png) | Maintains exploration for a longer duration, often resulting in more stable long-term performance at the cost of slower early convergence. |
+
+### Q-learning Observations
+
+- Off-policy updates allow faster learning toward optimal actions.
+- Aggressive decay can amplify maximization bias.
+- Moderate decay schedules provide the best tradeoff between speed and stability.
 
 ---
 
 ## SARSA(λ) Decay Strategy Comparison
 
 To understand how different exploration decay strategies influence
-SARSA(λ), we compare reward curves under multiple epsilon decay schedules.
+SARSA(λ), reward curves were analyzed under multiple epsilon decay schedules.
 
-| Decay Strategy | Rewards and Success Rate over episodes | Exploration decay graphs | Interpretation |
+| Decay Strategy | Curve Variant 1 | Interpretation |
 |----------------|----------------|----------------|----------------|
-| **Linear decay** | ![Linear Decay 1](sarsa_lambda_linear_decay_1.png) | ![Linear Decay 2](sarsa_lambda_linear_decay_2.png) | Gradual reduction in exploration creates a smooth learning progression with moderate stability and balanced exploration/exploitation. |
-| **Exponential decay** | ![Exp Decay 1](sarsa_lambda_exp_decay_1.png) | ![Exp Decay 2](sarsa_lambda_exp_decay_2.png) | Rapid decay accelerates exploitation early, potentially improving initial convergence but risking suboptimal policy locking. |
-| **Inverse time decay** | ![Inverse Decay 1](sarsa_lamba_inverse_decay_1.png) | ![Inverse Decay 2](sarsa_lambda_inverse_decay_2.png) | Slow reduction in exploration supports continued learning and adaptation, often producing stable long-term performance. |
+| **Linear decay** | ![Linear Decay 1](sarsa_lambda_linear_decay.png) | !Produces smooth and stable convergence by gradually shifting from exploration to exploitation. |
+| **Inverse time decay** | ![Inverse Decay 1](sarsa_lambda_inverse_decay.png) | Sustains exploration longer, often resulting in stable learning and improved long-term performance. |
 
-### Interpretation Highlights
+### SARSA(λ) Observations
 
-- **Linear decay** leads to balanced exploration and exploitation, smoothing the reward curve.
-- **Exponential decay** encourages faster exploitation, which can help early performance but may miss optimal policy exploration.
-- **Inverse time decay** keeps exploration higher longer, often yielding a more stable long-term increase in rewards.
+- On-policy learning benefits from slower decay schedules.
+- Eligibility traces help assign credit across state–action sequences.
+- Stability is generally higher compared to Q-learning.
+
+---
+
+## Key Comparative Insights
+
+- Q-learning converges faster but is more sensitive to aggressive decay.
+- SARSA(λ) demonstrates smoother learning due to on-policy updates.
+- Inverse and linear decay strategies generally outperform rapid exponential decay.
+- Exploration scheduling plays a crucial role in sparse-reward environments.
 
 ---
 
